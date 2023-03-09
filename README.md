@@ -1,4 +1,2 @@
 #!/bin/bash
 Not empty
-
-
