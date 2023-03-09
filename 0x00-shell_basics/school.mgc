@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -l /School
+file -C -m School
