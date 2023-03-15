@@ -1,3 +1,2 @@
 #!/bin/bash
 export PATH=$PATH:/action
-#alias echo $PATH='echo $PATH$(echo ':/action')'
