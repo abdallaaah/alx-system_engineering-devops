@@ -1,2 +1,2 @@
 #!/bin/bash
-uniq list -c  
+cat list.txt | uniq > 'modified.txt' 
