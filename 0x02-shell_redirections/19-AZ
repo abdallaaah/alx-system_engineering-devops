@@ -1,3 +1,2 @@
 #!/bin/bash
-sort |sed -e 's/A/Z' | sed -e 's/c/e'
-
+sed 's/A/Z/g' | sed 's/c/e/g'
