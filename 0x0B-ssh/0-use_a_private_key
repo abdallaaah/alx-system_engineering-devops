@@ -1,2 +1,3 @@
 #!/usr/bin/env bash
+# this is how you can connect to remote server with specify remote key
 ssh -i ~/.ssh/school ubuntu@34.232.71.154
