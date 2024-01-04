@@ -10,4 +10,5 @@ SERVER_IP="$2"
 USER_NAME="$3"
 SSH="$4"
 SCP_OPTIONS="-o StrictHostKeyChecking=no"
-scp $SCP_OPTIONS -i "$SSH" "$FILE_PATH" "$USER_NAME@$SERVER_IP:~/"
+scp $SCP_OPTIONS -i "$SSH""$FILE_PATH""$USER_NAME@$SERVER_IP:~/"
+exit 0 
