@@ -1,1 +1,1 @@
-LEARNING more ABOUT SSh
+sEARNING more ABOUT SSh
