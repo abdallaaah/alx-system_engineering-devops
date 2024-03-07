@@ -1,0 +1,2 @@
+sudo docker exec -it 29f0c9a6d046 bash
+service apache2 restart
