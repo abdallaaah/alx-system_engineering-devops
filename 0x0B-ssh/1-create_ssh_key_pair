@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# this is script to create a ssh key using options
+ssh-keygen -b 4096 -f school -N betty
