@@ -12,5 +12,5 @@ path=$1
 ip=$2
 username=$3
 pathtossh=$4
-scp -i $pathtossh $path $username@$ip:~/
+scp -i $pathtossh -o StrictHostKeyChecking=no $path $username@$ip:~/
 fi
