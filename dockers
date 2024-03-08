@@ -1,0 +1,4 @@
+Run docker image: docker run -p 8080:80 -d -it holbertonschool/265-0
+list all containers: sudo docker ps -a 
+connect to conatiner: sudo docker exec -it {29f0c9a6d046) bash 
+
