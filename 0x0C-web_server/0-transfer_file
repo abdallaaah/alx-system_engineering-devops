@@ -1,14 +1,16 @@
 #!/usr/bin/env bash
-#how to transfer file with scp
-if [ $# -lt 3 ]; then
-echo "Usage: 0-transfer_file PATH_TO_FILE IP USERNAME PATH_TO_SSH_KEY"
-exit 1
-fi
+# this how we transfer file to server securly with scp
+# we got arguments from temrinal
+# scp [file_name]  remoteuser@remotehost:/remote/directory
+# # scp test.txt jayesh@10.143.90.2:/home/jayesh
 
-FILE_PATH="$1"
-SERVER_IP="$2"
-USER_NAME="$3"
-SSH_PATH="$4"
-SCP_OPTIONS="-o StrictHostKeyChecking=no"
-scp $SCP_OPTIONS -i "$SSH_PATH" "$FILE_PATH" "$USER_NAME@$SERVER_IP:~/"
-exit 0 
+if [ $# -lt 3 ]
+then
+echo "Usage: 0-transfer_file PATH_TO_FILE IP USERNAME PATH_TO_SSH_KEY"
+else
+path=$1
+ip=$2
+username=$3
+pathtossh=$4
+scp -i $pathtossh $path $username@$ip:~/
+fi
