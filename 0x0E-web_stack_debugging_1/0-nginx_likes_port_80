@@ -4,6 +4,8 @@
 sudo apt-get update
 sudo apt-get install -y nginx
 ngnix_config_conf="/etc/nginx/sites-available/default"
+ngnix_conf_2="/etc/nginx/nginx.conf"
 sudo sed -i "s/listen *[0-9]* default_server;/listen 80 default_server;/g" "$ngnix_config_conf"
 sudo sed -i "s/listen \[::\]:[0-9]* default_server;/listen [::]:80 default_server;/g" "$ngnix_config_conf"
+sudo sed -i "s/listen .*;/listen 80;/g" "$nginx_conf_2"
 sudo systemctl restart nginx
