@@ -3,4 +3,5 @@
 
 ngnix_config_conf="/etc/nginx/sites-available/default"
 sudo sed -i "s/listen *[0-9]* default_server;/listen 80 default_server;/g" "$ngnix_config_conf"
+sudo sed -i "s/listen \[::\]:[0-9]* default_server;/listen [::]:80 default_server;/g" "$ngnix_config_conf"
 sudo systemctl restart nginx
