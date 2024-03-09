@@ -1,15 +1,7 @@
 #!/usr/bin/env bash
-# this how to change the port of nignix to list to 80 listen
+# Configures an Nginx server to listen on port 80.
 
-#sudo apt-get update
-#sudo apt-get install -y nginx
-#ngnix_config_conf="/etc/nginx/sites-available/default"
-#ngnix_conf_2="/etc/nginx/nginx.conf"
-#sudo sed -i "s/listen *[0-9]* default_server;/listen 80 default_server;/g" "$ngnix_config_conf"
-#sudo sed -i "s/listen \[::\]:[0-9]* default_server;/listen [::]:80 default_server;/g" "$ngnix_config_conf"
-#sudo sed -i "s/listen .*;/listen 80;/g" "$ngnix_conf_2"
 rm /etc/nginx/sites-enabled/default
 ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
-
 service nginx restart
 
