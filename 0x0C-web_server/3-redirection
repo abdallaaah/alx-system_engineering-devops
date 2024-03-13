@@ -1,4 +1,11 @@
 #!/usr/bin/env bash
-# this sed command to add redirect permenant to any thing here we redirect it to youtube video 
+# this is how to configure new ubunt nginx machine
+# this sed command to add redirect permenant to any thing here we redirect it to youtube video
+sudo apt-get update -y
+sudo apt-get install nginx -y
+sudo service nginx start
+# allowing nginx on firewall
+sudo ufw allow 'Nginx HTTP'
+sudo sh -c 'echo "Hello World!" > /var/www/html/index.nginx-debian.html' 
 sudo sed -i '24i\       rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-available/default
 sudo service nginx restart
