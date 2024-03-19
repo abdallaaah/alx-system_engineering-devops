@@ -1,3 +1,4 @@
+sudo apt-get install ufw 
 sudo ufw enable
 ufw default deny incoming
 sudo ufw enable 22
