@@ -2,12 +2,10 @@
 # Configure a ufw firewall to block all incoming trafic
 
 sudo apt-get install ufw 
-sudo ufw enable
-sudo ufw reload
-sudo ufw enable
 ufw default deny incoming
 ufw default allow outgoing
 sudo ufw enable 22/tcp
 sudo ufw enable 443/tcp
 sudo ufw enable 80/tcp
+sudo ufw enable
 sudo ufw reload
