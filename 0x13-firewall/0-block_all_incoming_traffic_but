@@ -1,4 +1,5 @@
 sudo ufw enable
+ufw default deny incoming
 sudo ufw enable 22
 sudo ufw enable 443
 sudo ufw enable 80
