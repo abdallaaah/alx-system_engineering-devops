@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# i don't know whoami
+
+if [ "$1" ]; then
+    sudo -u "$1" whoami
+fi
+
+
+
