@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# how to create a dimp file for all databasess
+# then compress it into tar file
+# /etc/mysql/
+
+MYSQL_USER="root"
+MYSQL_PASSWORD="$1"
+MYSQL_HOST="localhost"
+
+temp_file=$(mktemp)
+cat << EOF > "$temp_file"
+[client]
+user=$MYSQL_USER
+password=$MYSQL_PASSWORD
+host=$MYSQL_HOST
+EOF
+
+mysqldump --defaults-extra-file="$temp_file" --all-databases > backup.sql
+DATE=$(date +%d-%m-%Y)
+tar -czvf "$DATE.tar.gz" backup.sql
+rm "$temp_file"
+
