@@ -19,7 +19,7 @@ def fetch_data(employee_url, todos_url):
             user_list.append(x.get("title"))
     print(f"Employee {employee_name} is done with tasks({len(user_list)}/{len(todos_data)}):")
     for x in user_list:
-        print(f"\t {x}".expandtabs(4))
+        print(f"\t  {x}".expandtabs(4))
 
 
 if __name__ == "__main__":
