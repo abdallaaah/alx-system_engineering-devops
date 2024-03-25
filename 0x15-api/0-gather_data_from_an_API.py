@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# this is how to work with api to GET data
+"""this is how to work with api to GET data"""
 
 
 import requests
