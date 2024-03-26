@@ -17,7 +17,10 @@ def fetch_data(employee_url, todos_url):
     for x in todos_data:
         if x.get('completed') is True:
             user_list.append(x.get("title"))
-    print(f"Employee {employee_name} is done with tasks({len(user_list)}/{len(todos_data)}):")
+    print(
+        f"Employee {employee_name} is done with tasks("
+        f"{len(user_list)}/{len(todos_data)}):"
+    )
     for x in user_list:
         print(f"\t {x}".expandtabs(4))
 
