@@ -22,7 +22,7 @@ def fetch_data(employee_url, todos_url):
         f"{len(user_list)}/{len(todos_data)}):"
     )
     for x in user_list:
-        print(f"\t   {x}".expandtabs(4))
+        print(f"\t    {x}".expandtabs(4))
 
 
 if __name__ == "__main__":
