@@ -30,13 +30,20 @@ def create_csv(name, id, todos_data):
             writer.writerow([f'{id}', f'{name}',
                             f"{x.get('completed')}", f"{x.get('title')}"])
 
-def create_josn(id, todos_data, name):
-    """this function create json file from the response"""
-    with open(f"{id}.json", "w") as file:
-        for x in todos_data:
-            dict = {f'{id}': [{"task": f"{x.get('title')}",
-                               f"completed": f"{x.get('completed')}", "username": f"{name}"}]}
-            json.dump(dict, file)
+def create_josn(user_id, todos_data, name):
+    """Create a JSON file from the response."""
+    user_dict = {str(user_id): []}  # Initialize user_dict correctly as a dictionary.
+
+    for x in todos_data:
+        task_dict = {
+            "task": x.get('title'),  # No need for f-strings here.
+            "completed": x.get('completed'),  # Corrected syntax.
+            "username": name
+        }
+        user_dict[str(user_id)].append(task_dict)  # Append the task_dict to the list associated with the user_id.
+
+    with open(f"{user_id}.json", "w") as file:
+        json.dump(user_dict, file)
 
 
 
