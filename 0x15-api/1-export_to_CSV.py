@@ -11,7 +11,7 @@ def fetch_data(employee_url, todos_url):
     user_list = []
     response_employee_data = requests.get(employee_url)
     employee_data = response_employee_data.json()
-    employee_name = employee_data.get("name")
+    employee_name = employee_data.get("username")
     id = employee_data.get("id")
     response_todos_url_data = requests.get(todos_url)
     todos_data = response_todos_url_data.json()
