@@ -30,9 +30,10 @@ def create_csv(name, id, todos_data):
             writer.writerow([f'{id}', f'{name}',
                             f"{x.get('completed')}", f"{x.get('title')}"])
 
+
 def create_josn(user_id, todos_data, name):
     """Create a JSON file from the response."""
-    user_dict = {str(user_id): []}  # Initialize user_dict correctly as a dictionary.
+    user_dict = {str(user_id): []}
 
     for x in todos_data:
         task_dict = {
@@ -40,22 +41,18 @@ def create_josn(user_id, todos_data, name):
             "completed": x.get('completed'),  # Corrected syntax.
             "username": name
         }
-        user_dict[str(user_id)].append(task_dict)  # Append the task_dict to the list associated with the user_id.
+        user_dict[str(user_id)].append(task_dict)
 
     with open(f"{user_id}.json", "w") as file:
         json.dump(user_dict, file)
-
-
-
-
-
 
 
 if __name__ == "__main__":
     id = sys.argv[1]
     employee_url = f"https://jsonplaceholder.typicode.com/users/{id}"
     todos_url = f"https://jsonplaceholder.typicode.com/todos?userId={id}"
-    employee_name, id, todos_data, response_todos_url_data = fetch_data(employee_url, todos_url)
+    data = fetch_data(employee_url, todos_url)
+    (employee_name, id, todos_data, response_todos_url_data) = data
     # create_csv(employee_name, id, todos_data)
     # print('ssssss', type(response_todos_url_data))
     create_josn(id, todos_data, employee_name)
