@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """This script fetches data from an API to get users and their todo tasks."""
 
-import requests
 import json
+import requests
 
 if __name__ == "__main__":
     # Define the URLs for fetching data.
