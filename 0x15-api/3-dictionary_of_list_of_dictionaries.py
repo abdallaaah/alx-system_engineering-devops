@@ -1,39 +1,37 @@
 #!/usr/bin/python3
+"""This script fetches data from an API to get users and their todo tasks."""
 
-"""
-Python script that exports data in the JSON format.
-"""
-
-from requests import get
+import requests
 import json
 
 if __name__ == "__main__":
-    response = get('https://jsonplaceholder.typicode.com/todos/')
-    data = response.json()
+    # Define the URLs for fetching data.
+    employee_url = "https://jsonplaceholder.typicode.com/users/"
+    todos_url = "https://jsonplaceholder.typicode.com/todos/"
 
-    row = []
-    response2 = get('https://jsonplaceholder.typicode.com/users')
-    data2 = response2.json()
+    # Perform the GET requests.
+    employee_list = requests.get(employee_url).json()
+    todos_list = requests.get(todos_url).json()
 
-    new_dict1 = {}
+    # Initialize an empty dictionary to hold the user data.
+    user_dict = {}
 
-    for j in data2:
+    # Iterate over each employee to populate the user dictionary.
+    for employee in employee_list:
+        user_id = employee.get('id')
+        user_dict[str(user_id)] = []
 
-        row = []
-        for i in data:
+        # Go through each todo item
+        for todo in todos_list:
+            if todo.get('userId') == user_id:
+                todos_dict = {
+                    'username': employee.get('username'),
+                    'task': todo.get('title'),
+                    'completed': todo.get('completed')
+                }
+                # Append the todo task directly to the user's task list.
+                user_dict[str(user_id)].append(todos_dict)
 
-            new_dict2 = {}
-
-            if j['id'] == i['userId']:
-
-                new_dict2['username'] = j['username']
-                new_dict2['task'] = i['title']
-                new_dict2['completed'] = i['completed']
-                row.append(new_dict2)
-
-        new_dict1[j['id']] = row
-
-    with open("todo_all_employees.json",  "w") as f:
-
-        json_obj = json.dumps(new_dict1)
-        f.write(json_obj)
+    # Print the final user dictionary.
+    with open("todo_all_employees.json", "w") as file:
+        json.dump(user_dict, file)

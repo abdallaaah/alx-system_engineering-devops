@@ -16,6 +16,7 @@ def fetch_data(employee_url, todos_url):
     id = employee_data.get("id")
     response_todos_url_data = requests.get(todos_url)
     todos_data = response_todos_url_data.json()
+
     for x in todos_data:
         if x.get('completed') is True:
             user_list.append(x.get("title"))
@@ -34,7 +35,6 @@ def create_csv(name, id, todos_data):
 def create_josn(user_id, todos_data, name):
     """Create a JSON file from the response."""
     user_dict = {str(user_id): []}
-
     for x in todos_data:
         task_dict = {
             "task": x.get('title'),  # No need for f-strings here.
@@ -53,6 +53,4 @@ if __name__ == "__main__":
     todos_url = f"https://jsonplaceholder.typicode.com/todos?userId={id}"
     data = fetch_data(employee_url, todos_url)
     (employee_name, id, todos_data, response_todos_url_data) = data
-    # create_csv(employee_name, id, todos_data)
-    # print('ssssss', type(response_todos_url_data))
     create_josn(id, todos_data, employee_name)
